@@ -1,25 +1,25 @@
 import { useRecoilValue } from "recoil";
 import { filteredTodoListState } from "./recoilStore";
+import HeadLineComponent from "./HeadLineComponent";
+import NavBar from "./NavBar";
+import "./index.css";
+import Footer from "./Footer";
 interface articles {
   title: string;
   description: string;
   url: string;
 }
-function App() {
+export default function App() {
   const NewsDataArr = useRecoilValue(filteredTodoListState);
   return (
     <>
-      {NewsDataArr.map((ele: articles) => (
-        <div>
-          <h2>{ele.title}</h2>
-          <h4>{ele.description}</h4>
-          <a href={ele.url} target="_blank">
-            Click Here to Read More
-          </a>
-        </div>
-      ))}
+      <NavBar />
+      <div className="w-max:screen">
+        {NewsDataArr.map((ele: articles) => (
+          <HeadLineComponent element={ele}></HeadLineComponent>
+        ))}
+      </div>
+      <Footer />
     </>
   );
 }
-
-export default App;
