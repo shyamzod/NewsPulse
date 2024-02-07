@@ -1,5 +1,18 @@
 import "./index.css";
-function HeadLineComponent({ element }) {
+interface articles {
+  title: string;
+  description: string;
+  url: string;
+  source: {
+    name: string;
+  };
+  publishedAt: string;
+  author: string;
+}
+interface HeadLineComponentProps {
+  element: articles;
+}
+function HeadLineComponent({ element }: HeadLineComponentProps) {
   function MoveToBlog(url: string) {
     window.open(url, "_blank");
   }

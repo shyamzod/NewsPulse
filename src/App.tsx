@@ -8,6 +8,11 @@ interface articles {
   title: string;
   description: string;
   url: string;
+  source: {
+    name: string;
+  };
+  publishedAt: string;
+  author: string;
 }
 export default function App() {
   const NewsDataArr = useRecoilValue(filteredTodoListState);
